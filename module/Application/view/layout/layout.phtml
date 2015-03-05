@@ -1,4 +1,6 @@
-<?php echo $this->doctype(); ?>
+<?php use Zend\Feed\Reader\Collection\Category;
+use Zend\View\Helper\HtmlList;
+echo $this->doctype(); ?>
 
 <html lang="en">
     <head>
@@ -45,7 +47,8 @@
         </nav>
         <div class="container">
             <div class="col-lg-2">
-                <?php echo $this->categories; ?>
+               <h3>CATEGORIES</h3>
+                <?php echo $this->htmlList($this->categories); ?>               
             </div>
         
             <div class="col-lg-8">
