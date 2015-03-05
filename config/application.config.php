@@ -3,6 +3,7 @@ return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
         'Application',
+        'Market'
     ),
 
     // These are various options for the listeners attached to the ModuleManager
@@ -13,7 +14,7 @@ return array(
         // Module class.
         'module_paths' => array(
             './module',
-            './vendor',
+            './vendor','./module','./module',
         ),
 
         // An array of paths from which to glob configuration files after
