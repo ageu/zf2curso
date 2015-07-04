@@ -93,6 +93,13 @@ return array(
         )
     ),        
 
+    'service_manager' => array(
+        'factories' => array(
+            'Market-post-form'       => 'Market\Factory\PostFormFactory',
+            'Market-post-filter'     => 'Market\Factory\PostFilterFactory'
+        )
+    ),
+    
     'view_manager' => array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
