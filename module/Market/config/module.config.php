@@ -2,6 +2,17 @@
 return array(
     'router' => array(
         'routes' => array(
+            'home' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/',
+                    'defaults' => array(
+                        'controller' => 'market-index-controller',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            
             'market' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -11,23 +22,61 @@ return array(
                         'action'     => 'index',
                     ),
                 ),
-                
                 'may_terminate' => true,
                 'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'Segment',
+                    
+                    'view' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Literal',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
+                            'route'    => '/view',
                             'defaults' => array(
+                                'controller' => 'market-view-controller',
+                                'action'     => 'index',
+                            ),
+                        ),
+                    
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'index' => array(
+                                'type'    => 'Segment',
+                                'options' => array(
+                                    'route'    => '/main[/:category]',
+                                    'defaults' => array(
+                                        'action'    => 'index'
+                                    ),
+                                ),
+                            ),
+                            'item' => array(
+                                'type'    => 'Segment',
+                                'options' => array(
+                                    'route'    => '/item[/:itemId]',
+                                    'defaults' => array(
+                                        'action'    => 'item'
+                                    ),
+                                    'constraints' => array(
+                                        'itemId' => '[0-9]*',
+                                    ),
+                    
+                                ),
+                            ),
+                    
+                        ),
+                    ),
+                    
+                    'post' => array(
+                        'type' => 'Zend\Mvc\Router\Http\Literal',
+                        'options' => array(
+                            'route'    => '/post',
+                            'defaults' => array(
+                                'controller' => 'market-post-controller',
+                                'action'     => 'index',
                             ),
                         ),
                     ),
-                ),
+                    
+                )
             ),
+            
          ),
       ),
     
