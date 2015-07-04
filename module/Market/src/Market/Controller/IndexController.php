@@ -14,7 +14,8 @@ class IndexController extends AbstractActionController
             $messages = $this->flashmessenger()->getMessages();    
         }
         
+        return array('messages'=>$messages);
         
-        return new ViewModel(array('messages'=>$messages));
+        //return new ViewModel(array('messages'=>$messages));
     }
 }

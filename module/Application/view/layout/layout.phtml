@@ -48,7 +48,7 @@ echo $this->doctype(); ?>
         <div class="container">
             <div class="col-lg-2">
                <h3>CATEGORIES</h3>
-                <?php echo $this->htmlList($this->categories); ?>               
+                <?php echo $this->leftLinks($this->categories, $this->basepath().'/market/view/main'); ?>               
             </div>
         
             <div class="col-lg-8">
