@@ -1,4 +1,4 @@
-<h1>Ola Index Market</h1>
+<h1>Online Market</h1>
 
 <?php 
     if (isset($this->messages) && count($this->messages)): ?>
@@ -7,3 +7,5 @@
         <?php echo $this->htmlList($this->messages); ?>    
     </span>
 <?php endif; ?>
+
+<?php echo $this->partial('/market/partials/item', ['item'=>$this->item]); ?>
